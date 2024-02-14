@@ -3,6 +3,8 @@ class CreateAttractions < ActiveRecord::Migration[7.1]
     create_table :attractions do |t|
       t.string :name
       t.string :description
+      t.string :location
+      t.string :type
       t.decimal :cost
       t.references :city, null: false, foreign_key: true
 
