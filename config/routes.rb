@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'attractions/index'
+  get 'attractions/show'
+  get 'cities/index'
+  get 'cities/show'
+  get 'countries/index'
+  get 'countries/show'
+  get 'hotels/index'
+  get 'hotels/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

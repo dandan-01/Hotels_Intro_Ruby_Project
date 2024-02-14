@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_14_060230) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_14_163636) do
   create_table "attractions", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "location"
     t.string "type"
-    t.decimal "cost"
     t.integer "city_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
     t.index ["city_id"], name: "index_attractions_on_city_id"
   end
 
@@ -29,6 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_14_060230) do
     t.integer "country_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "airport_code"
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_14_060230) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "abbreviation"
   end
 
   create_table "hotels", force: :cascade do |t|
