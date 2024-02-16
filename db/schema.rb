@@ -10,41 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_14_163636) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_16_084949) do
   create_table "attractions", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "type"
+    t.string "address"
+    t.string "image"
     t.integer "city_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "address"
     t.index ["city_id"], name: "index_attractions_on_city_id"
   end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
+    t.string "airport_code"
     t.string "description"
     t.integer "country_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "airport_code"
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
+    t.string "country_code"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "abbreviation"
   end
 
   create_table "hotels", force: :cascade do |t|
     t.string "name"
-    t.string "rating"
-    t.string "address"
     t.string "description"
+    t.string "address"
+    t.integer "rating"
+    t.string "url"
     t.integer "city_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

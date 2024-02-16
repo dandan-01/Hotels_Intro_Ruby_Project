@@ -2,10 +2,12 @@
 
 one:
   name: MyString
+  airport_code: MyString
   description: MyString
   country: one
 
 two:
   name: MyString
+  airport_code: MyString
   description: MyString
   country: two

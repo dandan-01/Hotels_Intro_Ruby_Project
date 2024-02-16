@@ -2,16 +2,16 @@
 
 one:
   name: MyString
-  rating: MyString
-  address: MyString
   description: MyString
-  country: one
+  address: MyString
+  rating: 1
+  url: MyString
   city: one
 
 two:
   name: MyString
-  rating: MyString
-  address: MyString
   description: MyString
-  country: two
+  address: MyString
+  rating: 1
+  url: MyString
   city: two

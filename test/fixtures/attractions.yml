@@ -3,15 +3,13 @@
 one:
   name: MyString
   description: MyString
-  location: MyString
-  type: 
-  cost: 9.99
+  address: MyString
+  image: MyString
   city: one
 
 two:
   name: MyString
   description: MyString
-  location: MyString
-  type: 
-  cost: 9.99
+  address: MyString
+  image: MyString
   city: two

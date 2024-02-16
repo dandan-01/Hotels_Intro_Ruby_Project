@@ -1,10 +1,12 @@
 require 'csv'
 
 # delete all data from tables to prevent it from duplicating rows everytime you do db:seeds
+# Delete records in reverse order to avoid foreign key constraint violations
+Hotel.delete_all
 Attraction.delete_all
 City.delete_all
 Country.delete_all
-Hotel.delete_all
+
 
 #fetch the filename
 filename = Rails.root.join("db/hotels.csv")
