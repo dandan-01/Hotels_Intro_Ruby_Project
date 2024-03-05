@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_16_084949) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_05_082537) do
   create_table "attractions", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -49,6 +49,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_16_084949) do
     t.integer "city_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "map"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["city_id"], name: "index_hotels_on_city_id"
   end
 

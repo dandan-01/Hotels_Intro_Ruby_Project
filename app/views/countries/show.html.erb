@@ -1,2 +1,63 @@
-<h1>Countries#show</h1>
-<p>Find me in app/views/countries/show.html.erb</p>
+<div class="container">
+  <br>
+  <h1 class="title has-text-centered mb-6"><%= @city.name %></h1>
+  <p class="subtitle has-text-centered is-size-5">City Details</p>
+  <br>
+
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <table class="table is-fullwidth">
+        <tbody>
+          <tr>
+            <td><strong>Name:</strong></td>
+            <td><%= @country.name %></td>
+          </tr>
+          <tr>
+            <td><strong>Country Code:</strong></td>
+            <td><%= @country.country_code %></td>
+          </tr>
+          <tr>
+            <td><strong>Description:</strong></td>
+            <td><%= @country.description %></td>
+          </tr>
+          <tr>
+            <td><strong>Number of Cities:</strong></td>
+            <td><%= @city_count %></td>
+          </tr>
+          <tr>
+            <td><strong>List of Cities:</strong></td>
+            <td>
+              <% if @cities.any? %>
+                <ul>
+                  <% @cities.each do |city| %>
+                    <li><%= link_to city.name, city_path(city) %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                No cities found.
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Number of Hotels:</strong></td>
+            <td><%= @hotel_count %></td>
+          </tr>
+          <tr>
+            <td><strong>List of Hotels:</strong></td>
+            <td>
+              <% if @hotels.any? %>
+                <ul>
+                  <% @hotels.each do |hotel| %>
+                    <li><%= link_to hotel.name, hotel_path(hotel) %></li>
+                  <% end %>
+                </ul>
+              <% else %>
+                No hotels found.
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

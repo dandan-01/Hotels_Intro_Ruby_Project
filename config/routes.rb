@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "home#index"
   resources :attractions, only: [:index, :show]
   resources :cities, only: [:index, :show]
   resources :countries, only: [:index, :show]
@@ -11,4 +12,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Add this line to your config/routes.rb
+  get 'about', to: 'pages#about', as: 'about'
 end

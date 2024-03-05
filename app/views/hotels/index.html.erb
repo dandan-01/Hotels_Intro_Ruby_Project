@@ -1,2 +1,44 @@
-<h1>Hotels#index</h1>
-<p>Find me in app/views/hotels/index.html.erb</p>
+<head>
+  <% content_for :page_title, "Hotels | Hotel Getaways" %>
+</head>
+
+<div class="container">
+  <br>
+  <h1 class="title has-text-centered mb-6">Welcome to Hotel Getaways!</h1>
+  <p class="subtitle has-text-centered is-size-5">Your ultimate destination for hotel information</p>
+  <br>
+
+  <!-- Collection Navigation -->
+  <h2 class="subtitle">Hotel Collection</h2>
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hotels.each do |hotel| %>
+        <tr>
+          <td><%= link_to hotel.name, hotel_path(hotel) %></td> <!-- Add link to hotel show page -->
+          <td><%= hotel.address %></td>
+          <td><%= link_to hotel.city.name, city_path(hotel.city) %></td> <!-- Add link to city show page -->
+
+          <td>
+            <!-- Display flag icon using Flag-icon-css library -->
+            <span class="flag-icon flag-icon-<%= hotel.city.country.country_code.downcase %>"></span>
+
+            <!-- Add link to country show page -->
+            <%= link_to hotel.city.country.name, country_path(hotel.city.country) %>
+          </td>
+          <td>
+            <%= hotel.rating %>★ <!-- add star symbol to rating value -->
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

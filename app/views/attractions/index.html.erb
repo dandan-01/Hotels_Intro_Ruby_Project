@@ -1,2 +1,41 @@
-<h1>Attractions#index</h1>
-<p>Find me in app/views/attractions/index.html.erb</p>
+<head>
+  <% content_for :page_title, "Attractions | Hotel Getaways" %>
+</head>
+
+<div class="container">
+  <br>
+  <h1 class="title has-text-centered mb-6">Welcome to Hotel Getaways!</h1>
+  <p class="subtitle has-text-centered is-size-5">Your ultimate destination for hotel information</p>
+  <br>
+
+  <!-- Collection Navigation -->
+  <h2 class="subtitle">Attractions Collection</h2>
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Image</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @attractions.each do |attraction| %>
+        <tr>
+          <td><%= attraction.name %></td>
+          <td><%= attraction.description %></td>
+          <td><%= attraction.address %></td>
+          <td><img src="<%= attraction.image %>" alt="<%= attraction.name %>" style="max-width: 100px; max-height: 100px;"></td> <!-- Display image -->
+          <td><%= attraction.city.name %></td>
+
+          <td>
+            <!-- Display flag icon using Flag-icon-css library -->
+            <span class="flag-icon flag-icon-<%= attraction.city.country.country_code.downcase %>"></span> <%= attraction.city.country.name %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

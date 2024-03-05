@@ -1,5 +1,5 @@
 <head>
-  <% content_for :page_title, "Cities | Hotel Getaways" %>
+  <% content_for :page_title, "Hotel Getaways" %>
 </head>
 
 <div class="container">
@@ -9,22 +9,25 @@
   <br>
 
   <!-- Collection Navigation -->
-  <h2 class="subtitle">Cities Collection</h2>
+  <h2 class="subtitle">Hotel Collection</h2>
   <table class="table is-fullwidth">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Description</th>
+        <th>Location</th>
+        <th>City</th>
         <th>Country</th>
+        <th>Rating</th>
       </tr>
     </thead>
     <tbody>
-      <% @cities.each do |city| %>
+      <% @hotels.each do |hotel| %>
         <tr>
-          <td><%= city.name %></td>
-          <td><%= city.description %></td>
-          <!-- Display flag using flag-icon-css library -->
-          <td><span class="flag-icon flag-icon-<%= city.country.country_code.downcase %>"></span> <%= city.country.name %></td>
+          <td><%= hotel.name %></td>
+          <td><%= hotel.address %></td>
+          <td><%= hotel.city.name %></td> <!-- Display City using FK -->
+          <td><%= hotel.city.country.name %></td> <!-- Display Country using FK -->
+          <td><%= hotel.rating %></td>
         </tr>
       <% end %>
     </tbody>

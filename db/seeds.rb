@@ -1,6 +1,8 @@
 require 'csv'
+require 'faker'
 
 # Delete all data from tables to prevent it from duplicating rows every time you do db:seeds
+Attraction.delete_all
 Hotel.delete_all
 City.delete_all
 Country.delete_all
@@ -19,6 +21,18 @@ hotels.each do |h|
   # Lorem paragraph
   description = Faker::Lorem.paragraph
 
+  # Modify the city name to remove special characters. For example, Himar�
+  cleaned_city_name = h["cityName"].gsub(/[^0-9A-Za-z]/, '')
+
+  # Add latitude and longitude based on Map column on hotels.csv
+  if h["Map"].present?
+    latitude, longitude = h["Map"].split("|")
+  else
+    # Default values or handle the absence of coordinates as needed
+    latitude = nil
+    longitude = nil
+  end
+
   # Find or create the country record
   country = Country.find_or_create_by(
     name: h["countyName"],
@@ -27,7 +41,7 @@ hotels.each do |h|
 
   # Find or create the city record
   city = City.find_or_create_by(
-    name: h["cityName"],
+    name: cleaned_city_name,
     airport_code: h["airport_code"],
     country: country
   )
@@ -39,7 +53,9 @@ hotels.each do |h|
     address: h["Address"],
     rating: h["HotelRating"],
     url: h["HotelWebsiteUrl"],
-    city: city
+    city: city,
+    latitude: latitude,
+    longitude: longitude
   )
 
   # Use Lorem WITHOUT creating duplicates of the same name! This must be done outside the find_or_create_by method
@@ -74,13 +90,15 @@ attractions.each do |a|
   end
 
   # Create the attraction record
-  Attraction.create(
+  attraction = Attraction.create(
     name: a["Name"],
     image: a["Image"],
-    address: Faker::Address.street_address,
-    description: Faker::Lorem.paragraph,
     city: city
   )
+
+   # Use Lorem WITHOUT creating duplicates of the same name! This must be done outside the find_or_create_by method
+   attraction.update(address: Faker::Address.street_address)
+   attraction.update(description: Faker::Lorem.paragraph)
 end
 
 puts "Created #{Attraction.count} attractions"
