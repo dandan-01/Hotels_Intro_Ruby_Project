@@ -7,6 +7,7 @@
       <strong class="is-size-4">Hotel Getaways</strong>
     </a>
 
+    <!-- category navbar -->
     <div class="navbar-end is-flex">
       <a class="navbar-item" href="<%= root_path %>"> Home </a>
       <div class="navbar-divider"></div>
@@ -21,10 +22,22 @@
       <div class="navbar-divider"></div>
 
       <a class="navbar-item" href="<%= cities_path %>"> Cities </a>
-    <div class="navbar-divider"></div>
+      <div class="navbar-divider"></div>
 
-    <a class="navbar-item" href="<%= countries_path %>"> Countries </a>
-    <div class="navbar-divider"></div>
+      <a class="navbar-item" href="<%= countries_path %>"> Countries </a>
+      <div class="navbar-divider"></div>
+
+      <!-- Search form -->
+      <div class="navbar-item">
+        <%= form_with(url: hotels_path, method: :get, local: true, class: "field has-addons") do |form| %>
+          <div class="control">
+            <%= form.text_field :search, placeholder: "Search hotels...", class: "input", value: params[:search], aria: { label: 'Search hotels' } %>
+          </div>
+          <div class="control">
+            <%= form.submit "Search", class: "button is-info" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
