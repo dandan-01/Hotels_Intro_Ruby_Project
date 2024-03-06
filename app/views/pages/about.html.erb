@@ -1,7 +1,36 @@
 <head>
-  <% content_for :page_title, "About | Hotel Getaways" %>
+  <% content_for :page_title, "Hotel Getaways" %>
 </head>
 
+<div class="container">
+  <br>
+  <h1 class="title has-text-centered mb-6">Welcome to Hotel Getaways!</h1>
+  <p class="subtitle has-text-centered is-size-5">Your ultimate destination for hotel information</p>
+  <br>
 
-<h1>About Us</h1>
-<p>I chose the Hotels dataset from Kaggle (https://www.kaggle.com/datasets/raj713335/tbo-hotels-dataset) and the travel-destinations dataset from a github repo (https://github.com/nghia-t-nguyen/travel-bot-project/blob/main/Travel-Destinations.csv). The data that I'll be using will be about hotels and different tourist attractions. There are 4 tables, Countries, Cities, Hotels and Attractions. I will pull information about the Countries, Cities and Hotels from the hotel dataset. The information for the Attractions table will be pulled from the travel-destinations dataset. The datasets integrate with each other because Hotels are located in Cities and Countries. And Attractions will be located in Cities. Hotels and Attractions are connected to each other through the Cities table.</p>
+  <!-- Collection Navigation -->
+  <div class="box">
+    <h2 class="subtitle"><strong>Description:</strong></h2>
+    <p>The data sources used in this project were <a href="https://www.kaggle.com/datasets/raj713335/tbo-hotels-dataset">RAJ713335's Hotels dataset from Kaggle</a> and the <a href="https://github.com/nghia-t-nguyen/travel-bot-project/blob/main/Travel-Destinations.csv">travel-destinations dataset from Nghia Nguyen's Github repo</a>. The data that I'll be using will be about hotels and different tourist attractions. There are 4 tables, Countries, Cities, Hotels and Attractions. I will pull information about the Countries, Cities and Hotels from the hotel dataset. The information for the Attractions table will be pulled from the travel-destinations dataset. </p>
+  </div>
+
+  <div class="box">
+    <h2 class="subtitle"><strong>Data Structure:</strong></h2>
+    <div class="content">
+      <ol>
+        <li><strong>Countries</strong> - Each country has one or many cities.</li>
+        <li><strong>Cities</strong> - Each city belongs to a country and can have one or many hotels and attractions.</li>
+        <li><strong>Hotels</strong> - Each hotel belongs to 1 city, and 1 country.</li>
+        <li><strong>Attractions</strong> - Each attraction belongs to 1 city, and 1 country.</li>
+      </ol>
+    </div>
+
+    <br>
+
+    <h2 class="subtitle"><strong>ERD:</strong></h2>
+    <img src="https://lh3.googleusercontent.com/pw/AP1GczN-FR1O8KeAWp9yLXt-5kOwjuJvLESGsLp2WBsCbQ1BibLBECOoAT1t_MmqYPsUAJ48iIttGdeBgjR5E5Q7f67CEfZC_9hcyz2lMcaOQQsrP42p_P83mPHPGYulePLJPYk97ETvNMaoHNPdOrxp4VcYBQ=w749-h521-s-no-gm?authuser=0"/>
+  </div>
+</div>
+
+<br>
+<br>
