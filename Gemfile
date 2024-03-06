@@ -5,6 +5,9 @@ ruby "3.1.2"
 #add gem
 gem 'faker'
 
+# add kaminari for pagination
+gem 'kaminari'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
 

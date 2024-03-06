@@ -1,6 +1,7 @@
 class CitiesController < ApplicationController
   def index
-    @cities = City.all
+    #@cities = City.all
+    @cities = City.page(params[:page]).per(50) #add new page per 50 rows
   end
 
   def show

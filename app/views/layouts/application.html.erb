@@ -9,6 +9,32 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
+    <!-- CSS styling for pagination -->
+    <style>
+      .pagination {
+        justify-content: center !important;
+        margin-top: 20px !important;
+      }
+
+      .pagination a {
+        padding: 8px 12px;
+        margin: 0 5px;
+        border-radius: 3px;
+        background-color: #f0f0f0;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .pagination a:hover {
+        background-color: #ddd;
+      }
+
+      .pagination .page.current {
+        font-weight: 900;
+      }
+    </style>
+
     <!-- Add Font Awesome -->
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" %>
 

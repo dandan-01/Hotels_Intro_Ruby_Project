@@ -1,6 +1,7 @@
 class CountriesController < ApplicationController
   def index
-    @countries = Country.all
+    #@countries = Country.all
+    @countries = Country.page(params[:page]).per(50) #add new page per 50 rows
   end
 
   def show

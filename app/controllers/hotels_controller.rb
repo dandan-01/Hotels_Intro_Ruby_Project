@@ -1,6 +1,7 @@
 class HotelsController < ApplicationController
   def index
-    @hotels = Hotel.all
+    #@hotels = Hotel.all
+    @hotels = Hotel.page(params[:page]).per(50) #add new page per 50 rows
   end
 
   def show
