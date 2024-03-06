@@ -23,13 +23,40 @@
     <tbody>
       <% @hotels.each do |hotel| %>
         <tr>
-          <td><%= hotel.name %></td>
+          <td><%= link_to hotel.name, hotel_path(hotel) %></td>
           <td><%= hotel.address %></td>
-          <td><%= hotel.city.name %></td> <!-- Display City using FK -->
-          <td><%= hotel.city.country.name %></td> <!-- Display Country using FK -->
+          <td><%= link_to hotel.city.name, city_path(hotel.city) %></td> <!-- Display City using FK -->
+          <td><%= link_to hotel.city.country.name, country_path(hotel.city.country) %></td> <!-- Display Country using FK -->
           <td><%= hotel.rating %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  <div class="is-divider" data-content=""></div>
+
+  <h2 class="subtitle">Attractions Collection</h2>
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @attractions.each do |attraction| %>
+        <tr>
+          <td><%= link_to attraction.name, attraction_path(attraction) %></td>
+          <td><%= attraction.address %></td>
+          <td><%= link_to attraction.city.name, city_path(attraction.city) %></td>
+          <td><%= link_to attraction.city.country.name, country_path(attraction.city.country) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+
+<br>
+<br>
