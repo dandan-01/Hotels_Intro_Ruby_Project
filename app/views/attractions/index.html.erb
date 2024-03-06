@@ -24,15 +24,16 @@
     <tbody>
       <% @attractions.each do |attraction| %>
         <tr>
-          <td><%= attraction.name %></td>
+          <td><%= link_to attraction.name, attraction_path(attraction) %></td>
           <td><%= attraction.description %></td>
           <td><%= attraction.address %></td>
           <td><img src="<%= attraction.image %>" alt="<%= attraction.name %>" style="max-width: 100px; max-height: 100px;"></td> <!-- Display image -->
-          <td><%= attraction.city.name %></td>
+          <td><%= link_to attraction.city.name, city_path(attraction.city) %></td>
 
           <td>
             <!-- Display flag icon using Flag-icon-css library -->
-            <span class="flag-icon flag-icon-<%= attraction.city.country.country_code.downcase %>"></span> <%= attraction.city.country.name %>
+            <span class="flag-icon flag-icon-<%= attraction.city.country.country_code.downcase %>"></span>
+            <%= link_to attraction.city.country.name, country_path(attraction.city.country) %>
           </td>
         </tr>
       <% end %>

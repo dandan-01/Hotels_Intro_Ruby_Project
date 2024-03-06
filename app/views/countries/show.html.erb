@@ -1,51 +1,57 @@
 <div class="container">
   <br>
-  <h1 class="title has-text-centered mb-6"><%= @city.name %></h1>
-  <p class="subtitle has-text-centered is-size-5">City Details</p>
+  <h1 class="title has-text-centered mb-6">
+    <span class="flag-icon flag-icon-<%= @country.country_code.downcase %>"></span>
+    <%= @country.name %>
+  </h1>
+  <p class="subtitle has-text-centered is-size-5">Country Details</p>
   <br>
 
   <div class="columns is-centered">
     <div class="column is-half">
       <table class="table is-fullwidth">
         <tbody>
+
           <tr>
             <td><strong>Name:</strong></td>
             <td><%= @country.name %></td>
           </tr>
+
           <tr>
             <td><strong>Country Code:</strong></td>
             <td><%= @country.country_code %></td>
           </tr>
+
           <tr>
             <td><strong>Description:</strong></td>
             <td><%= @country.description %></td>
           </tr>
+
           <tr>
-            <td><strong>Number of Cities:</strong></td>
-            <td><%= @city_count %></td>
+            <td><strong>Total Cities with Hotels:</strong></td>
+            <td><%= @city_count %> cities found</td>
           </tr>
+
           <tr>
             <td><strong>List of Cities:</strong></td>
             <td>
-              <% if @cities.any? %>
                 <ul>
                   <% @cities.each do |city| %>
                     <li><%= link_to city.name, city_path(city) %></li>
                   <% end %>
                 </ul>
-              <% else %>
-                No cities found.
-              <% end %>
             </td>
           </tr>
+
           <tr>
-            <td><strong>Number of Hotels:</strong></td>
-            <td><%= @hotel_count %></td>
+            <td><strong>Total Hotels:</strong></td>
+            <td><%= @hotel_count %> available hotels</td>
           </tr>
+
           <tr>
             <td><strong>List of Hotels:</strong></td>
             <td>
-              <% if @hotels.any? %>
+              <% if @hotels.present? %>
                 <ul>
                   <% @hotels.each do |hotel| %>
                     <li><%= link_to hotel.name, hotel_path(hotel) %></li>

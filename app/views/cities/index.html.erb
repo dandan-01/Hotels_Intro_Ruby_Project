@@ -21,10 +21,14 @@
     <tbody>
       <% @cities.each do |city| %>
         <tr>
-          <td><%= city.name %></td>
+          <td><%= link_to city.name, city_path(city) %></td>
           <td><%= city.description %></td>
+
           <!-- Display flag using flag-icon-css library -->
-          <td><span class="flag-icon flag-icon-<%= city.country.country_code.downcase %>"></span> <%= city.country.name %></td>
+          <td>
+            <span class="flag-icon flag-icon-<%= city.country.country_code.downcase %>"></span>
+            <%= link_to city.country.name, country_path(city.country) %>
+          </td>
         </tr>
       <% end %>
     </tbody>

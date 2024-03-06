@@ -23,7 +23,7 @@
         <tr>
           <!-- Display flag using flag-icon-css library -->
           <td><span class="flag-icon flag-icon-<%= country.country_code.downcase %>"></span></td>
-          <td><%= country.name %></td>
+          <td><%= link_to country.name, country_path(country) %></td>
           <td><%= country.description %></td>
         </tr>
       <% end %>

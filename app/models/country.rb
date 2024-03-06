@@ -1,6 +1,5 @@
 class Country < ApplicationRecord
   has_many :cities
-  has_many :hotels # needed for count method in show page
 
   validates :name, presence: true
   validates :country_code,

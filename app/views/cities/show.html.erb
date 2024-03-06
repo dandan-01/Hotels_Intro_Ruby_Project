@@ -26,12 +26,15 @@
 
           <tr>
             <td><strong>Country:</strong></td>
-            <td><%= @city.country.name %></td>
+            <td>
+              <span class="flag-icon flag-icon-<%= @city.country.country_code.downcase %>"></span>
+              <%= link_to @city.country.name, country_path(@city.country) %>
+            </td>
           </tr>
 
           <tr>
             <td><strong>Number of Hotels:</strong></td>
-            <td><%= @hotel_count %></td>
+            <td><%= @hotel_count %> available hotels</td>
           </tr>
 
           <tr>

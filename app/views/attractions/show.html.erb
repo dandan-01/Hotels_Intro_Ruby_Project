@@ -1,2 +1,52 @@
-<h1>Attractions#show</h1>
-<p>Find me in app/views/attractions/show.html.erb</p>
+<div class="container">
+  <br>
+  <h1 class="title has-text-centered mb-6"><%= @attraction.name %></h1>
+  <p class="subtitle has-text-centered is-size-5">Attraction Details</p>
+  <br>
+
+  <div class="columns is-centered">
+    <div class="column is-three-quarters">
+      <!-- Display image -->
+      <div class="has-text-centered">
+        <img src="<%= @attraction.image %>" alt="<%= @attraction.name %>" style="max-width: 100%; height: auto;">
+      </div>
+
+      <table class="table is-fullwidth">
+        <tbody>
+
+          <tr>
+            <td><strong>Name:</strong></td>
+            <td><%= @attraction.name %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Description:</strong></td>
+            <td><%= @attraction.description %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Location:</strong></td>
+            <td><%= @attraction.address %></td>
+          </tr>
+
+          <tr>
+            <td><strong>City:</strong></td>
+            <td><%= link_to @attraction.city.name, city_path(@attraction.city) %></td>
+          </tr>
+
+          <tr>
+            <td><strong>Country:</strong></td>
+            <td>
+              <span class="flag-icon flag-icon-<%= @attraction.city.country.country_code.downcase %>"></span>
+              <%= link_to @attraction.city.country.name, country_path(@attraction.city.country) %>
+              </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
